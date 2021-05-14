@@ -1,5 +1,6 @@
 package data.entity;
 
+import abstracts.EntityId;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -7,11 +8,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "Computers")
-public class Computer {
+public class Computer implements EntityId<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer idHall;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_hall")
+    private Hall hall;
+    @Column(name = "video_card")
     private String videoCard;
     private String processor;
     private String mouse;
@@ -27,12 +31,12 @@ public class Computer {
         this.id = id;
     }
 
-    public Integer getIdHall() {
-        return idHall;
+    public Hall getHall() {
+        return hall;
     }
 
-    public void setIdHall(Integer idHall) {
-        this.idHall = idHall;
+    public void setHall(Hall hall) {
+        this.hall = hall;
     }
 
     public String getVideoCard() {
@@ -81,5 +85,10 @@ public class Computer {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "vc-" + videoCard + ", pr-" + processor + ", lvl-" + level;
     }
 }

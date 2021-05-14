@@ -1,17 +1,21 @@
 package data.entity;
 
+import abstracts.EntityId;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "Halls")
-public class Hall {
+@Table(name = "halls")
+public class Hall implements EntityId<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer idClub;
+    private String name;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_club")
+    private Club club;
     private String status;
 
     public Long getId() {
@@ -22,12 +26,20 @@ public class Hall {
         this.id = id;
     }
 
-    public Integer getIdClub() {
-        return idClub;
+    public String getName() {
+        return name;
     }
 
-    public void setIdClub(Integer idClub) {
-        this.idClub = idClub;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public void setClub(Club club) {
+        this.club = club;
     }
 
     public String getStatus() {
@@ -36,5 +48,10 @@ public class Hall {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return status + "(" + club + ")";
     }
 }

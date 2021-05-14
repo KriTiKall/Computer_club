@@ -1,5 +1,6 @@
 package data.entity;
 
+import abstracts.EntityId;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "clubs")
-public class Club {
+public class Club implements EntityId<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +16,7 @@ public class Club {
     private String specialization;
     private String city;
     private String street;
+    @Column(name = "house_number")
     private Integer houseNumber;
 
     public Long getId() {
@@ -63,5 +65,10 @@ public class Club {
 
     public void setHouseNumber(Integer houseNumber) {
         this.houseNumber = houseNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "г. '" + city + ", ул. " + street + ", д. " + houseNumber;
     }
 }

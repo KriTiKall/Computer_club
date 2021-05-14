@@ -1,23 +1,29 @@
 package data.entity;
 
+import abstracts.EntityId;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "clients")
-public class Client {
+@Table(name = "clients", schema = "public")
+public class Client implements EntityId<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idComputer;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_computer")
+    private Computer computer;
     private String nickname;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private String link;
     private String mail;
-    private String cost;
+    @Column(name = "cost")
+    private Integer cost;
 
     public Long getId() {
         return id;
@@ -27,12 +33,12 @@ public class Client {
         this.id = id;
     }
 
-    public Long getIdComputer() {
-        return idComputer;
+    public Computer getComputer() {
+        return computer;
     }
 
-    public void setIdComputer(Long idComputer) {
-        this.idComputer = idComputer;
+    public void setComputer(Computer computer) {
+        this.computer = computer;
     }
 
     public String getNickname() {
@@ -67,6 +73,14 @@ public class Client {
         this.link = link;
     }
 
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
     public String getMail() {
         return mail;
     }
@@ -75,11 +89,8 @@ public class Client {
         this.mail = mail;
     }
 
-    public String getCost() {
-        return cost;
-    }
-
-    public void setCost(String cost) {
-        this.cost = cost;
+    @Override
+    public String toString() {
+        return firstName + " (" + nickname + ") " + lastName;
     }
 }
