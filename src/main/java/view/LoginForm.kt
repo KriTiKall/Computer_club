@@ -15,10 +15,12 @@ class LoginForm {
         const val WINDOW_WIDTH = 480
 
         const val DEFAULT_FONT_SIZE = 14
+
+        const val FONT_NAME = "Arial"
     }
 
     val frMain = JFrame()
-    val lSignin = JLabel("Добро пожаловать в Gamer club")
+    val lSignin = JLabel("Gamer club")
     val lLogin = JLabel("Логин")
     val tfLogin = JTextField()
     val lPassword = JLabel("Пароль")
@@ -40,16 +42,16 @@ class LoginForm {
         }
 
         lSignin.apply {
-            setSize(400, 50)
-            setLocation((WINDOW_WIDTH - 400) / 2, 10)
-            font = Font("TimesRoman", Font.PLAIN, 24)
+            setSize(150, 50)
+            setLocation((WINDOW_WIDTH - 150) / 2, 10)
+            font = Font(FONT_NAME, Font.PLAIN, 24)
             isVisible = true
         }
 
         lLogin.apply {
             setSize(100, 20)
             setLocation(WINDOW_WIDTH / 2 - 80, 100)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             isVisible = true
         }
 
@@ -63,7 +65,7 @@ class LoginForm {
         lPassword.apply {
             setSize(100, 20)
             setLocation(WINDOW_WIDTH / 2 - 80, 140)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             isVisible = true
         }
 
@@ -83,7 +85,7 @@ class LoginForm {
         bSignin.apply {
             setSize(100, 20)
             setLocation((WINDOW_WIDTH - 100) / 2 - 60, 240)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             background = Color(0xC2D8FF)
             isVisible = true
         }
@@ -91,7 +93,7 @@ class LoginForm {
         bSignUp.apply {
             setSize(140, 20)
             setLocation((WINDOW_WIDTH - 100) / 2 + 60, 240)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             background = Color(0xC2D8FF)
             isVisible = true
         }

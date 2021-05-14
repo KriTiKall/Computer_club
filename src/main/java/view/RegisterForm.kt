@@ -14,6 +14,8 @@ class RegisterForm {
         const val WINDOW_WIDTH = 480
 
         const val DEFAULT_FONT_SIZE = 14
+
+        const val FONT_NAME = "Arial"
     }
 
     val frMain = JFrame()
@@ -44,14 +46,14 @@ class RegisterForm {
         lSignin.apply {
             setSize(350, 50)
             setLocation((WINDOW_WIDTH - 350) / 2, 10)
-            font = Font("TimesRoman", Font.PLAIN, 24)
+            font = Font(FONT_NAME, Font.PLAIN, 24) //"TimesRoman"
             isVisible = true
         }
 
         lLogin.apply {
             setSize(100, 20)
-            setLocation(WINDOW_WIDTH / 2 - 80, 90)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            setLocation(WINDOW_WIDTH / 2 - 90, 90)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             isVisible = true
         }
 
@@ -64,8 +66,8 @@ class RegisterForm {
 
         lPassword.apply {
             setSize(100, 20)
-            setLocation(WINDOW_WIDTH / 2 - 80, 120)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            setLocation(WINDOW_WIDTH / 2 - 90, 120)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             isVisible = true
         }
 
@@ -78,8 +80,8 @@ class RegisterForm {
 
         lRepeat.apply {
             setSize(100, 20)
-            setLocation(WINDOW_WIDTH / 2 - 80, 150)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            setLocation(WINDOW_WIDTH / 2 - 90, 150)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             isVisible = true
         }
 
@@ -106,7 +108,7 @@ class RegisterForm {
         bBack.apply {
             setSize(100, 20)
             setLocation((WINDOW_WIDTH - 100) / 2 - 60, 250)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             background = Color(0xC2D8FF)
             isVisible = true
         }
@@ -114,7 +116,7 @@ class RegisterForm {
         bSignUp.apply {
             setSize(140, 20)
             setLocation((WINDOW_WIDTH - 100) / 2 + 60, 250)
-            font = Font("TimesRoman", Font.PLAIN, DEFAULT_FONT_SIZE)
+            font = Font(FONT_NAME, Font.PLAIN, DEFAULT_FONT_SIZE)
             background = Color(0xC2D8FF)
             isVisible = true
         }
